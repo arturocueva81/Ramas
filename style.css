@@ -1,3 +1,139 @@
-body { font-family: sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; }
-.comando { background: white; padding: 15px; margin-bottom: 10px; border-left: 5px solid #2ecc71; border-radius: 4px; }
-h1 { color: #2c3e50; }
+/* ===========================
+   PALETA DE COLORES
+   =========================== */
+:root {
+  --rojo-oscuro:   #8B0000;
+  --rojo-principal:#C0392B;
+  --rojo-medio:    #E74C3C;
+  --rojo-claro:    #FADBD8;
+  --blanco:        #FFFFFF;
+  --blanco-hueso:  #FDF6F6;
+  --gris-suave:    #F5F5F5;
+  --texto-oscuro:  #2C2C2C;
+  --texto-medio:   #555555;
+  --sombra:        rgba(192, 57, 43, 0.15);
+}
+
+/* ===========================
+   RESET Y BASE
+   =========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--blanco-hueso);
+  color: var(--texto-oscuro);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+header {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal));
+  color: var(--blanco);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 4px 12px var(--sombra);
+}
+
+header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+header p {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  opacity: 0.88;
+  font-style: italic;
+}
+
+/* ===========================
+   CONTENEDOR PRINCIPAL
+   =========================== */
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 2.5rem;
+}
+
+/* ===========================
+   TARJETAS DE COMANDO
+   =========================== */
+.comando {
+  background: var(--blanco);
+  border-left: 5px solid var(--rojo-principal);
+  border-radius: 8px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 3px 10px var(--sombra);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comando:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--sombra);
+  border-left-color: var(--rojo-oscuro);
+}
+
+.comando h2 {
+  font-size: 1.15rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--rojo-principal);
+  background-color: var(--rojo-claro);
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.comando p {
+  font-size: 0.95rem;
+  color: var(--texto-medio);
+}
+
+/* ===========================
+   RESPONSIVE — TABLET
+   =========================== */
+@media (max-width: 768px) {
+  #contenedor {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    padding: 0 1rem 2rem;
+    margin-top: 1.8rem;
+  }
+}
+
+/* ===========================
+   RESPONSIVE — MÓVIL
+   =========================== */
+@media (max-width: 480px) {
+  header {
+    padding: 2rem 1rem;
+  }
+
+  #contenedor {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.75rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .comando {
+    padding: 1.2rem 1rem;
+  }
+
+  .comando h2 {
+    font-size: 1rem;
+  }
+}
